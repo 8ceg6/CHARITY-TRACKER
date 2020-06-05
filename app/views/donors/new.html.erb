@@ -1,0 +1,11 @@
+<h1> DONOR INFORMATION </h1>
+<%= form_for @donor do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :password %>
+    <%= f.text_field :password_digest %><br>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+    <%= f.submit %>
+
+<% end %>

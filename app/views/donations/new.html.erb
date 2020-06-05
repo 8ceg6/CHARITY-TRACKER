@@ -1,0 +1,13 @@
+<h1>ENTER YOUR CHARITY OF CHOICE</h1>
+
+<%= form_for @donation do |f| %>
+<%= f.label "Donation Amount" %>
+<%= f.number_field :amount %>
+<%= f.fields_for :donor, @donation.donor.build do |donors_field| %>
+    <%= donors_field.text_field :name %>
+    <% end %>
+<%= f.fields_for :charity, @donation.charity.build do |charities_field| %>
+    <%= charities_field.text_field :name %>
+    <% end %>
+    <% f.submit %>
+ <% end %>   
