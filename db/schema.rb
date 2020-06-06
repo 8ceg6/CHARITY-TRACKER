@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(version: 2020_06_04_170810) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "amount"
-    t.string "donor_id"
-    t.string "charity_id"
+    t.integer "donor_id"
+    t.integer "charity_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["charity_id"], name: "index_donations_on_charity_id"
+    t.index ["donor_id"], name: "index_donations_on_donor_id"
   end
 
   create_table "donors", force: :cascade do |t|

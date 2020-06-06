@@ -17,7 +17,7 @@ class DonationsController < ApplicationController
     private 
     
     def don_params 
-        params.require(:donation).permit(:amount, charity_attributes: [:name], donor_attributes: [:name]  )
-        # :donor_ids:[], :charity_ids:[]
+        params.require(:donation).permit(:amount, :donor_id, :charity_id, charity_attributes: [:name], donor_attributes: [:name]  )
+         
     end 
 end
