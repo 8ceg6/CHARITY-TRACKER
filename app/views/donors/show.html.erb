@@ -1,3 +1,5 @@
 
-<h1> <%= @donor.name %>'s <h1>
+<h1> <%= @donor.name %>'s </h1>
 <p> Donations List</p>
+
+<%= link_to  "make a new donation", new_donor_donation_path(@donor) %>

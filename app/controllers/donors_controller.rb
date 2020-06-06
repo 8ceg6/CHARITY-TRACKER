@@ -1,5 +1,8 @@
 class DonorsController < ApplicationController
-
+    def index 
+        @donors = Donor.all
+    end 
+    
     def new 
         @donor = Donor.new
     end 
@@ -7,11 +10,13 @@ class DonorsController < ApplicationController
     def create 
         @donor = Donor.create(donor_params)
 
+
         redirect_to donor_path(@donor)
     end 
 
     def show 
         @donor = Donor.find_by(:id => params[:id])
+        
     end 
 
 
