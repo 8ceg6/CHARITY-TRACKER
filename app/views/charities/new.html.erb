@@ -1,10 +1,12 @@
-<h2>  Charity </h2>
+<h2>  Create Or Select a Charity </h2>
 
 <%= form_for @charity do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
     <%= f.label :email %>
-    <%= f.text_field :email %><br>
+    <%= f.text_field :email %><br><br>
+    
+    <%= collection_select(:charity, :name, Charity.all, :name, :name) %><br><br>
     <h2>Donor Info </h2>
     <%= f.fields_for :donor do |d| %>
     <%= d.label "Name" %>
