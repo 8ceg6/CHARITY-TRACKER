@@ -8,7 +8,8 @@
 10.times do 
     Donor.create(
         name: Faker::Name.name,
-        email: Faker::Internet.safe_email
+        email: Faker::Internet.safe_email,
+        password_digest: Faker::Alphanumeric.alphanumeric(number: 5)
     )
 end
 

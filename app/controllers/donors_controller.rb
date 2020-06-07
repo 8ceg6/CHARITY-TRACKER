@@ -1,4 +1,7 @@
 class DonorsController < ApplicationController
+    before_action :find_donor
+    before_action :authentication_required, except: [:new, :create, :index]
+
     def index 
         @donors = Donor.all
     end 
@@ -9,7 +12,6 @@ class DonorsController < ApplicationController
 
     def create 
         @donor = Donor.create(donor_params)
-
 
         redirect_to donor_path(@donor)
     end 
@@ -25,4 +27,8 @@ class DonorsController < ApplicationController
     def donor_params 
         params.require(:donor).permit(:name, :email, :password_digest)
     end 
+    
+    def find_donor
+        @donor = Donor.find_by(:id => params[:id])
+    end
 end

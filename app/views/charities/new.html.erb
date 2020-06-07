@@ -1,9 +1,21 @@
-<h1> Enter Your Charity's Info </h1>
+<h2>  Charity </h2>
 
 <%= form_for @charity do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email %><br>
+    <h2>Donor Info </h2>
+    <%= f.fields_for :donor do |d| %>
+    <%= d.label "Name" %>
+    <%= d.text_field :name %><br>
+    <%= d.label "Email" %>
+    <%= d.text_field :email %><br>
+    <%end%>
+<br>
+    <%= f.fields_for :donation do |d| %>
+    <%= d.label "Amount" %>
+    <%= d.number_field :amount %><br>
+    <%end%>
     <%= f.submit %>
 <% end %>
