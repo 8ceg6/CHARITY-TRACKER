@@ -4,9 +4,10 @@
 <%= f.label "Donation Amount: $" %>
 <%= f.number_field :amount %><br>
 
+<p> Select a Charity</p>
+<%= collection_select(:charity, :name, Charity.all, :name, :name) %><br><br> 
 
-
-<%= f.fields_for :charities  do |char_fld| %>
+<%= f.fields_for :charity  do |char_fld| %>
     <%= char_fld.label "Charity Name"%>
     <%= char_fld.text_field :name %><br>
     <%= char_fld.label "Email"%>

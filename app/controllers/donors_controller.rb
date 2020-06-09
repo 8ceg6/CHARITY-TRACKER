@@ -1,9 +1,11 @@
 class DonorsController < ApplicationController
       before_action :find_donor
-     before_action :authentication_required, except: [:new, :create, :index]
+      before_action :authentication_required, except: [:new, :create]
         
 
     def index 
+        
+
         @donors = Donor.all
     end 
     

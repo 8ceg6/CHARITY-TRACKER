@@ -6,19 +6,5 @@
     <%= f.label :email %>
     <%= f.text_field :email %><br><br>
     
-    <p> Select a Charity</p>
-    <%= collection_select(:charity, :name, Charity.all, :name, :name) %><br><br>
-    <h2>Donor Info </h2>
-    <%= f.fields_for :donor do |d| %>
-    <%= d.label "Name" %>
-    <%= d.text_field :name %><br>
-    <%= d.label "Email" %>
-    <%= d.text_field :email %><br>
-    <%end%>
-<br>
-    <%= f.fields_for :donation do |d| %>
-    <%= d.label "Amount" %>
-    <%= d.number_field :amount %><br>
-    <%end%>
-    <%= f.submit "SUBMIT"%>
+    <%= f.submit "Add Charity"%>
 <% end %>

@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user 
+    helper_method :current_user
     
     def authentication_required
         if !logged_in?
-          redirect_to '/login'
+          redirect_to '/'
         end
     end 
     

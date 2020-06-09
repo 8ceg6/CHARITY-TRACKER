@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :charities
 
   resources :donors do 
-    resources :donations, only: [:new, :index]
+    resources :donations, only: [:new, :index, :show]
   end 
   # get '/' => 'donors#index'
   get '/login' => 'session#new'
