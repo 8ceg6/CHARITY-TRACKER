@@ -1,15 +1,18 @@
 class SessionController < ApplicationController
-
+    def new
+    end 
+   
+   
     def create 
-        donor = Donor.find_by(:name => params[:donor][:name])
-        if donor && donor.authenticate(params[:password])
-            session[:donor_id] = donor.id 
-            redirect_to donor_path(donor)
-        else 
-            redirect_to '/'    
-          end 
-    
+        # byebug
+       donor = Donor.find_by(:id => params[:id])
+       if donor && donor.authenticate(params[:password])
+       session[:donor_id] = donor.id
+       end
     end 
 
-
+    def destroy 
+        reset_session     
+        redirect_to login_path 
+    end
 end

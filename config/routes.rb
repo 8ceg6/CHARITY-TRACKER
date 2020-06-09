@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "session#index"
   resources :donations
   resources :donors
   resources :charities
@@ -6,9 +7,9 @@ Rails.application.routes.draw do
   resources :donors do 
     resources :donations, only: [:new, :index]
   end 
-  get '/' => 'session#index'
-  get '/signin' => 'session#new'
-  post '/signin' => 'session#create'  
+  # get '/' => 'donors#index'
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'  
   get '/logout' => 'session#destroy'
   get '/session/new'
 

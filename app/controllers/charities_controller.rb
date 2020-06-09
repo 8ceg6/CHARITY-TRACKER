@@ -1,9 +1,9 @@
 class CharitiesController < ApplicationController
-        # before_action  :find_charity, only: [:index, :show, :edit, :update]
+        before_action  :find_charity, only: [:index, :show, :edit, :update]
 
     def index 
         @charities = Charity.all
-        # redirect_to charity_path(@charities)
+        redirect_to charity_path(@charities)
     end 
     def new 
         @charity = Charity.new 
@@ -25,7 +25,7 @@ private
     def charity_params 
         params.require(:charity).permit(:name, :email, 
                         donor_attributes: [:name], 
-                        donations_attributes: [:amount])
+                        donations_attributes: [:amount] [:id])
     end 
 
     def find_charity

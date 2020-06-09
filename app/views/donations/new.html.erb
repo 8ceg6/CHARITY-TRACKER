@@ -6,9 +6,11 @@
 
 
 
-<%= f.fields_for :charity  do |char_fld| %>
-    <%= char_fld.label "name"%>
+<%= f.fields_for :charities  do |char_fld| %>
+    <%= char_fld.label "Charity Name"%>
     <%= char_fld.text_field :name %><br>
+    <%= char_fld.label "Email"%>
+    <%= char_fld.text_field :email %><br>
     <% end %>
-<%= f.submit %>
+<%= f.submit "Submit Donation"%>
  <% end %>   
