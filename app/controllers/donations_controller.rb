@@ -20,8 +20,8 @@ class DonationsController < ApplicationController
     end 
 
     def create 
-        donation = Donation.create(don_params)
-        redirect_to donor_donations_path(donation.donor)
+        @donation = Donation.create(don_params)
+        redirect_to donor_donations_path(@donation.donor)
     end 
 
     def show 
