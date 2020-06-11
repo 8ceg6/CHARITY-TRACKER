@@ -4,9 +4,7 @@ class DonorsController < ApplicationController
         
 
     def index 
-        
-
-        @donors = Donor.all
+         @donors = Donor.all
     end 
     
     def new 
@@ -15,19 +13,22 @@ class DonorsController < ApplicationController
 
     def create 
         @donor = Donor.create(donor_params)
-        # byebug
         session[:donor_id] = @donor.id
         @donor.save
         redirect_to donor_path(@donor)
     end 
 
     def show 
-        @donor = Donor.find_by(:id => params[:id])
         
     end 
 
+    def destroy 
+       
+        @donor.destroy
+        redirect_to "/"
+    end 
 
-    private 
+private 
 
     def donor_params 
         params.require(:donor).permit(:name, :email, :password)

@@ -1,7 +1,6 @@
 
 <h1> <%= @donor.name %>'s </h1>
 <p> Donations List</p>
-<ul>
 
-
-<%= link_to  "make a new donation", new_donor_donation_path(@donor) %>
+<%= link_to  "make a donation", new_donor_donation_path(@donor) %>
+<%= link_to "Delete account", @song, method: :delete %>

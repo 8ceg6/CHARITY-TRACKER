@@ -4,20 +4,24 @@ class DonationsController < ApplicationController
     def index 
         if params[:donor_id]
             @donations = Donor.find(params[:donor_id]).donations
+            # byebug
         else
-        @donations = Donation.all 
+            @donations = Donation.all 
         end 
     end 
 
     def new 
-        @donation = Donation.new
-        @donation.build_charity
-    
+        if params[:donor_id] && !Donor.exists?(params[:donor_id]) 
+            redirect_to charities_path, alert: "Donor not found"
+        else
+            @donation = Donation.new(donor_id: params[:donor_id])
+            @donation.build_charity
+        end
     end 
 
     def create 
-        @donations = Donation.create(don_params)
-        redirect_to donor_donations_url
+        donation = Donation.create(don_params)
+        redirect_to donor_donations_path(donation.donor)
     end 
 
     def show 
@@ -27,7 +31,8 @@ class DonationsController < ApplicationController
 
     private 
     
-        def don_params 
-            params.require(:donation).permit(:amount, :charity_id, :donor_id, charity_attributes: [:name, :email, :id])
-        end 
+    def don_params 
+        params.require(:donation).permit(:amount, :charity_id, :donor_id,
+                            charity_attributes: [:name, :email, :id])
+    end 
 end

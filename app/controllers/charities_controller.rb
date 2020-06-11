@@ -15,7 +15,7 @@ class CharitiesController < ApplicationController
     end
     
     def show 
-        # byebug
+        
     end 
 
 

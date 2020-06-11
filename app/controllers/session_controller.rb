@@ -4,10 +4,9 @@ class SessionController < ApplicationController
    
    
     def create 
-        # byebug
        donor = Donor.find_by(:id => params[:id])
        if donor && donor.authenticate(params[:password])
-       session[:donor_id] = donor.id
+            session[:donor_id] = donor.id
        end
     end 
 

@@ -21,3 +21,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+ <!-- <%= char_fld.text_field :name, list: "charities_autocomplete" %><br>
+    <datalist id="charities_autocomplete">
+    <% Charity.all.each do |c| %>
+    <option value="<%= c.name %>">
+    <%end%>
+    </datalist> -->

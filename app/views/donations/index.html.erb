@@ -1,0 +1,6 @@
+<% @donations.each do |d| %>
+
+<li>  <%= d.charity.name %> : 
+      <%= d.amount %> </li> 
+<%end%>
+ <%= link_to  "make a new donation", new_donor_donation_path %>
