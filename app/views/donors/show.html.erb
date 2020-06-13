@@ -2,4 +2,4 @@
 <h1> <%= @donor.name %> </h1>
 
 <%= link_to  "Make a donation", new_donor_donation_path(@donor) %><br>
-<%= link_to "Delete account", @song, method: :delete %>
+<%= link_to "Delete account", @donor, method: :delete %>

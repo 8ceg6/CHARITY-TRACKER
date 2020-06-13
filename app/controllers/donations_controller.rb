@@ -4,7 +4,7 @@ class DonationsController < ApplicationController
     def index 
         if params[:donor_id]
             @donations = Donor.find(params[:donor_id]).donations
-            # byebug
+            @donor = Donor.find(params[:donor_id])
         else
             @donations = Donation.all 
         end 
@@ -20,8 +20,13 @@ class DonationsController < ApplicationController
     end 
 
     def create 
-        @donation = Donation.create(don_params)
-        redirect_to donor_donations_path(@donation.donor)
+        @donation = Donation.new(don_params)
+        if @donation.valid?
+            @donation.save 
+            redirect_to donor_donations_path(@donation.donor)
+        else
+            redirect_to new_donor_donation_path(@donation.donor)
+        end 
     end 
 
     def show 
