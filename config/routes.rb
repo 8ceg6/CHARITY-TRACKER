@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'  
   get '/logout' => 'session#destroy'
-  match '/auth/:provider/callback', to: 'session#gh_create', via: [:get, :post]
  
-  get '/auth/github/callback' => 'session#create'
+  get '/auth/facebook/callback' => 'session#omni_create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

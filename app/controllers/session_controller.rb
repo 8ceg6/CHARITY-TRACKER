@@ -2,19 +2,17 @@ class SessionController < ApplicationController
     
     def new
     end 
-   def gh_create
+   def omni_create
     byebug
-   end 
+    @donor = User.find_or_create_by(name: auth["info"]["email"])
+        if !@donor.password
+      @donor.password = 'omniauth_password'
+        end
+    end 
    
     
     
     def create 
-        if auth_hash = request.env["omniauth.auth"]
-            donor = Donor.omniauth_login(auth_hash)
-            
-            session[:donor_id] = donor_id 
-            redirect_to donor_path(donor)
-        else
         donor = Donor.find_by(:name => params[:donor][:name])
         if donor && donor.authenticate(params[:donor][:password])
             session[:donor_id] = donor.id
@@ -23,7 +21,7 @@ class SessionController < ApplicationController
         else
             render :new
         end
-      end
+      
     end 
 
     def destroy 
