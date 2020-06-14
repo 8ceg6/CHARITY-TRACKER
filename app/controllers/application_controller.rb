@@ -8,11 +8,14 @@ class ApplicationController < ActionController::Base
     end 
     
     def logged_in?
-    !!current_user
+        !!current_user
     end
 
     def current_user 
         @current_user ||= Donor.find(session[:donor_id]) if session[:donor_id]
     end 
     
+    def find_donor
+        @donor = Donor.find_by(:id => params[:id])
+    end
 end

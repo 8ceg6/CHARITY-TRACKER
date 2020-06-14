@@ -3,7 +3,6 @@ class CharitiesController < ApplicationController
 
     def index 
         @charities = Charity.alpha
-        # byebug
     end 
     def new 
         @charity = Charity.new 
@@ -18,9 +17,7 @@ class CharitiesController < ApplicationController
         
     end 
 
-
-
-private 
+    private 
 
     def charity_params 
         params.require(:charity).permit(:name, :email )

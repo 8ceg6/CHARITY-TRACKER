@@ -11,6 +11,7 @@ class DonationsController < ApplicationController
     end 
 
     def new 
+        @donor = @donor = Donor.find(params[:donor_id])
         if params[:donor_id] && !Donor.exists?(params[:donor_id]) 
             redirect_to charities_path
         else
@@ -25,14 +26,13 @@ class DonationsController < ApplicationController
             @donation.save 
             redirect_to donor_donations_path(@donation.donor)
         else
+            
             redirect_to new_donor_donation_path(@donation.donor)
         end 
     end 
 
     def show 
-
     end 
-
 
     private 
     

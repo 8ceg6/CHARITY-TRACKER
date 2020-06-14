@@ -1,5 +1,6 @@
 <h1>DONOR</h1> 
-<h1> <%= @donor.name %> </h1>
+<h2> <%= @donor.name %> </h2>
+<p> <%= @donor.email %> </p>
 
 <%= link_to  "Make a donation", new_donor_donation_path(@donor) %><br>
 <%=  link_to "Logout", '/logout' %><br>

@@ -2,8 +2,8 @@ class SessionController < ApplicationController
     
     def new
     end 
-   def omni_create
-# byebug            
+   
+    def omni_create            
             @donor = Donor.find_or_create_by(email: auth["info"]["email"], name: auth["info"]["name"])
         
         if !@donor.password
@@ -11,7 +11,6 @@ class SessionController < ApplicationController
         end
             @donor.save
             session[:donor_id] = @donor.id
-            # raise @donor.errors.full_messages.inspect
             redirect_to donor_path(@donor)
     end 
    

@@ -1,4 +1,4 @@
-<h1>DONATION SUBMISSION</h1>
+<h2>DONATION SUBMISSION</h2>
 
 <%= form_for @donation do |f| %>
 <%= render 'errors' %>
@@ -20,5 +20,6 @@
     <%= char.label "Email"%>
     <%= char.text_field :email %><br>
     <% end %>
-<%= f.submit "Submit Donation"%>
+<%= f.submit "Submit Donation"%><br><br>
+<%=  link_to "Mypage", donor_path(@donor) %>
  <% end %>   
