@@ -14,8 +14,11 @@ class DonorsController < ApplicationController
     def create 
         @donor = Donor.create(donor_params)
         session[:donor_id] = @donor.id
-        @donor.save
-        redirect_to donor_path(@donor)
+       if @donor.save
+         redirect_to donor_path(@donor)
+       else 
+        render :new
+       end
     end 
 
     def show 
@@ -23,7 +26,6 @@ class DonorsController < ApplicationController
     end 
 
     def destroy 
-       
         @donor.destroy
         redirect_to "/"
     end 

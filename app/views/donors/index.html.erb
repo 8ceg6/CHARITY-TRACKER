@@ -1,1 +1,4 @@
-look
+<% @donors.each do |d| %>
+
+<li>  <%= link_to d.name, donor_path(d) %></li>
+<%end%>

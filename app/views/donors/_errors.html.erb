@@ -1,5 +1,8 @@
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
+<% if @donor.errors.any? %>
+<h2> Errors </h2>
+    <ul>
+        <% @donor.errors.full_messages.each do |mesg| %>
+            <li><%= mesg %></li>
+            <%end %>
+    </ul>
+<% end %><br>

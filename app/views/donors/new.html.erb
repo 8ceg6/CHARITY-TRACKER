@@ -1,5 +1,6 @@
 <h1> DONOR INFORMATION </h1>
 <%= form_for @donor do |f| %>
+<%= render 'errors' %><br>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
     <%= f.label :password %>

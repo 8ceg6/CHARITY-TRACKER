@@ -4,6 +4,7 @@
 <li>  <%= d.charity.name %> : 
       $<%= d.amount %> </li> 
 <%end%><br>
- 
+      Total amount of your donations- 
+ $<%=@donations.donor_total%><br>
  
  <%= link_to  "make a new donation", new_donor_donation_path %>

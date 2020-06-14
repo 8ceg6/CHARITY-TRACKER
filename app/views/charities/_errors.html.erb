@@ -1,0 +1,8 @@
+<% if @charity.errors.any? %>
+<h2> Errors </h2>
+    <ul>
+        <% @charity.errors.full_messages.each do |mesg| %>
+            <li><%= mesg %></li>
+            <%end %>
+    </ul>
+<% end %>

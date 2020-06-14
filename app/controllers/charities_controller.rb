@@ -2,15 +2,15 @@ class CharitiesController < ApplicationController
         before_action  :find_charity, only: [:show, :edit, :update]
 
     def index 
-        @charities = Charity.all
-        
+        @charities = Charity.alpha
+        # byebug
     end 
     def new 
         @charity = Charity.new 
     end 
 
     def create 
-        @charity = Charity.create(charity_params)
+        @charity = Charity.find_or_create(charity_params)
         redirect_to charities_path
     end
     

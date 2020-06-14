@@ -12,7 +12,7 @@ class DonationsController < ApplicationController
 
     def new 
         if params[:donor_id] && !Donor.exists?(params[:donor_id]) 
-            redirect_to charities_path, alert: "Donor not found"
+            redirect_to charities_path
         else
             @donation = Donation.new(donor_id: params[:donor_id])
             @donation.build_charity
