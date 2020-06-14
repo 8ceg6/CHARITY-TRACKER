@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'  
   get '/logout' => 'session#destroy'
  
-  get '/auth/facebook/callback' => 'session#omni_create'
+  get 'auth/github/callback' => 'session#omni_create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
