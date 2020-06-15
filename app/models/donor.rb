@@ -4,4 +4,9 @@ class Donor < ApplicationRecord
     has_secure_password
     validates :email, presence: true
     validates :email, uniqueness: true
+
+
+    def find_donor
+        @donor = Donor.find_by(:id => params[:id])
+    end
 end
