@@ -11,7 +11,7 @@ class DonationsController < ApplicationController
     end 
 
     def new 
-        @donor = @donor = Donor.find(params[:donor_id])
+        @donor = Donor.find(params[:donor_id])
         if params[:donor_id] && !Donor.exists?(params[:donor_id]) 
             redirect_to charities_path
         else

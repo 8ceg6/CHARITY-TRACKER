@@ -35,7 +35,4 @@ private
         params.require(:donor).permit(:name, :email, :password)
     end 
     
-    def find_donor
-        @donor = Donor.find_by(:id => params[:id])
-    end
 end

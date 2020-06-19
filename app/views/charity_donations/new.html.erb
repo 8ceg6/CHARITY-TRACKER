@@ -1,0 +1,5 @@
+<%= form_for @donation do |f| %>
+<%= render 'donors/errors' %>
+<%= f.hidden_field :donor_id %>
+<%= f.label "Donation Amount: $" %>
+<%= f.number_field :amount %><br>

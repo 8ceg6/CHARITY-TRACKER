@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   root "session#index"
   resources :donations
   resources :donors
-  resources :charities
-
+  resources :charities do 
+    get '/donations' => 'charity_donations#index'
+    get '/donations/new' => 'charity_donations#new'
+    post '/donations' => 'charity_donations#create'
+  end
   resources :donors do 
     resources :donations, only: [:new, :index, :show]
+    
+
   end 
   # get '/' => 'donors#index'
   get '/login' => 'session#new'
