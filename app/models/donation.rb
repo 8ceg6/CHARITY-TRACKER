@@ -7,6 +7,7 @@ class Donation < ApplicationRecord
     
     
     def charity_attributes=(char)
+        # byebug
         self.charity = Charity.find_or_create_by(char)
         self.save 
     end 

@@ -1,5 +1,5 @@
 class DonationsController < ApplicationController
-    before_action :authentication_required
+    before_action :authentication_required, except: :create
     
     def index 
         if params[:donor_id]
@@ -22,12 +22,13 @@ class DonationsController < ApplicationController
 
     def create 
         @donation = Donation.new(don_params)
-        if @donation.valid?
+        # binding.pry
+        if @donation.valid? && current_user.id == params[:donation][:donor_id].to_i
             @donation.save 
+           
             redirect_to donor_donations_path(@donation.donor)
-        else
-            
-            redirect_to new_donor_donation_path(@donation.donor)
+        else   
+            redirect_to  new_donor_donation_path(@donation.donor)
         end 
     end 
 
@@ -38,6 +39,6 @@ class DonationsController < ApplicationController
     
     def don_params 
         params.require(:donation).permit(:amount, :charity_id, :donor_id,
-                            charity_attributes: [:name, :email, :id])
+                            charity_attributes:[:name, :id])
     end 
 end

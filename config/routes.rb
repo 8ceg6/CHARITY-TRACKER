@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :donations
   resources :donors
   resources :charities do 
-    get '/donations' => 'charity_donations#index'
+    get '/donations' => 'charity_donations#show'
     get '/donations/new' => 'charity_donations#new'
+    post '/donations/new' => 'charity_donations#new'
     post '/donations' => 'charity_donations#create'
   end
   resources :donors do 

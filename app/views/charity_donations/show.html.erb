@@ -1,0 +1,23 @@
+</head>
+<body>
+
+    <h1 style="color:green;">Donations For <%=@charity.name %></h1>
+
+<table>
+    <tr>
+    <th> Donor </th>
+    <th> Amount </th>
+    <th> Date </th>
+    </tr>
+ <% @donations.collect do |d|%>
+    <tr>
+    <td> <%= d.donor.name%>  </td> 
+    <td > $<%= d.amount %> </td>
+    <td> <%= d.created_at.strftime("%-m-%d-%y")%> </td>
+    </tr>
+<%end%>
+    </table>
+    </body>
+    </html>
+    <h2><span style="color:red;" > $<%=@donations.donor_total%></span></h2>
+    <%=  link_to "Charities", '/charities' %>

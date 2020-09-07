@@ -17,9 +17,7 @@
     <option value="<%= c.name %>">
     <%end%>
     </datalist>
-    <%= char.label "Email"%>
-    <%= char.text_field :email %><br>
     <% end %>
 <%= f.submit "Submit Donation"%><br><br>
-<%=  link_to "Mypage", donor_path(@donor) %>
+<%=  button_to "Mypage", donor_path(@donor) %>
  <% end %>   

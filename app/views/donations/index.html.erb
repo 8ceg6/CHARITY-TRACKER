@@ -1,10 +1,10 @@
 <h2> <%= @donor.name %>'s Donation List </h2>
 <% @donations.each do |d| %>
-
-<li>  <%= d.charity.name %> : 
+      
+<li>  <%= link_to d.charity.name, charity_donations_path(d.charity) %> : 
       $<%= d.amount %> </li> 
 <%end%><br>
-      Total amount of your donations- 
+      Total amount of your donations: 
  $<%=@donations.donor_total%><br>
  
  <%= link_to  "make a new donation", new_donor_donation_path %>

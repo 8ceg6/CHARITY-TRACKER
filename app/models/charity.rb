@@ -5,6 +5,4 @@ class Charity < ApplicationRecord
     accepts_nested_attributes_for :donations, :donors
     scope :alpha, -> { order(:name) }
     
-
-
 end

@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
-    helper_method :authentication_required
+    helper_method [:authentication_required, :current_user]
     
     def authentication_required
-        if !logged_in?
+      #  byebug
+      if !logged_in?
           redirect_to '/'
         end
     end 
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user 
-        @current_user ||= Donor.find(session[:donor_id]) if session[:donor_id]
+      Donor.find(session[:donor_id]) if session[:donor_id]
     end 
     
     def find_donor

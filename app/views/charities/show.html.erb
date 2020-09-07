@@ -1,4 +1,24 @@
+</head>
+<body>
 
-<h1> <%= @charities %> Donation Tracking </h1>
+    <h1 style="color:green;">Donations For <%=@charity.name %></h1>
 
+<table>
+    <tr>
+    <th> Donor </th>
+    <th> Amount </th>
+    <th> Date </th>
+    </tr>
+ <% @charity.donations.collect do |d|%>
+    <tr>
+    <td> <%= d.donor.name%>  </td> 
+    <td > $<%= d.amount %> </td>
+    <td> <%= d.created_at.strftime("%-m-%d-%y")%> </td>
+    </tr>
+<%end%>
+    </table>
+    </body>
+    </html>
+    <h2><span style="color:red;" > $<%=@charity.donations.donor_total%></span></h2>
+<%=  button_to "Anonymous Donation", charity_donations_new_path(@charity) %>
 
