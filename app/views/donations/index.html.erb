@@ -1,4 +1,26 @@
 <h2> <%= @donor.name %>'s Donation List </h2>
+
+<table>
+    <tr>
+    <th> Donor </th>
+    <th> Amount </th>
+    <th> Date </th>
+    </tr>
+ <% @donor.donations.collect do |d|%>
+    
+    <tr>
+    <td> <%= link_to d.charity.name, charity_donations_path(d.charity)%>  </td> 
+    <td > $<%= d.amount %> </td>
+    <td> <%= d.created_at.strftime("%-m-%d-%y")%> </td>
+    </tr>
+<%end%>
+    </table>
+    </body>
+    </html><br>
+    <h2></h2>
+    <h2> Total Amount Of Your Donations:<span style="color:red;" > $<%=@donor.donations.donor_total%></span></h2>
+
+
 <% @donations.each do |d| %>
       
 <li>  <%= link_to d.charity.name, charity_donations_path(d.charity) %> : 

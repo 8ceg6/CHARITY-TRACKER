@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
     before_action :authentication_required, except: :create
+    skip_before_action :verify_authenticity_token, only: :create
     
     def index 
         if params[:donor_id]
