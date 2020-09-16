@@ -16,17 +16,8 @@
 <%end%>
     </table>
     </body>
-    </html><br>
-    <h2></h2>
+    </html>
     <h2> Total Amount Of Your Donations:<span style="color:red;" > $<%=@donor.donations.donor_total%></span></h2>
 
-
-<% @donations.each do |d| %>
-      
-<li>  <%= link_to d.charity.name, charity_donations_path(d.charity) %> : 
-      $<%= d.amount %> </li> 
-<%end%><br>
-      Total amount of your donations: 
- $<%=@donations.donor_total%><br>
- 
- <%= link_to  "make a new donation", new_donor_donation_path %>
+ <%= link_to  "Make a new donation", new_donor_donation_path %><br>
+ <%=  link_to "Logout", '/logout' %><br

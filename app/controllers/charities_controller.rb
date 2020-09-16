@@ -11,7 +11,7 @@ class CharitiesController < ApplicationController
     def create 
         # byebug
         if @charity = Charity.find_by(name: params[:charity][:name])
-            # @charity
+             @charity
         else 
             @charity = Charity.create(charity_params)
         end

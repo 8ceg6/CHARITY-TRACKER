@@ -6,11 +6,9 @@
 <%= f.label "Donation Amount: $" %>
 <%= f.number_field :amount %><br>
 
-<p> Select a Charity:</p>
-
 <%= f.fields_for :charity  do |char| %>
    
-    <%= char.label "Charity Name"%>
+    <%= char.label "Select or add a Charity"%>
     <%= char.text_field :name, list: "charities_autocomplete" %><br>
     <datalist id="charities_autocomplete">
     <%Charity.all.each do |c| %>
@@ -18,6 +16,7 @@
     <%end%>
     </datalist>
     <% end %>
-<%= f.submit "Submit Donation"%><br><br>
+<%= f.submit "Submit Donation"%><br>
 <%=  button_to "Mypage", donor_path(@donor) %>
+<%=  link_to "Logout", '/logout' %><br>
  <% end %>   

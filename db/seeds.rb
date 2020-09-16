@@ -16,6 +16,6 @@ end
 10.times do 
     Charity.create(
         name: Faker::Nation.nationality, 
-        email: Faker::Internet.safe_email
+    
     )
 end
