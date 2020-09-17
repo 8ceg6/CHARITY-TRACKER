@@ -23,7 +23,7 @@ class DonationsController < ApplicationController
 
     def create 
         @donation = Donation.new(don_params)
-        # binding.pry
+
         if @donation.valid? && current_user.id == params[:donation][:donor_id].to_i
             @donation.save 
            

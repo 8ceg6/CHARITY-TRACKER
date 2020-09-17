@@ -1,15 +1,16 @@
 class CharitiesController < ApplicationController
         before_action  :find_charity, only: [:show, :edit, :update]
-        
+        before_action :find_donor
     def index 
         @charities = Charity.all
+        @donor = Donor.find_by(id: params[:id])
     end 
     def new 
         @charity = Charity.new 
     end 
 
     def create 
-        # byebug
+        
         if @charity = Charity.find_by(name: params[:charity][:name])
              @charity
         else 
