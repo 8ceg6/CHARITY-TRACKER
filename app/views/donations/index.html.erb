@@ -20,5 +20,6 @@
     <h2> Total Amount Of Your Donations:<span style="color:red;" > $<%=@donor.donations.donor_total%></span></h2>
 
  <%= link_to  "Make a new donation", new_donor_donation_path %><br>
+ <%=  link_to "All Charities", charities_path %><br>
  <%=  link_to "Logout", '/logout' %><br>
-  <%=  link_to "All Charities", charities_path %><br>
+  

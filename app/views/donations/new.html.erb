@@ -17,6 +17,6 @@
     </datalist>
     <% end %>
 <%= f.submit "Submit Donation"%><br>
-<%=  button_to "Mypage", donor_path(@donor) %>
+<%=  link_to "Mypage", donor_path(@donor) %><br>
 <%=  link_to "Logout", '/logout' %><br>
  <% end %>   

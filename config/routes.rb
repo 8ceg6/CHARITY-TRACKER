@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   end
   resources :donors do 
     resources :donations, only: [:new, :index, :show]
+    end 
     
-
-  end 
   # get '/' => 'donors#index'
   get '/login' => 'session#new'
   post '/login' => 'session#create'  

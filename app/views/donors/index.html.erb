@@ -1,4 +1,10 @@
+<h2> Donors List</h2>
+<ol>
 <% @donors.each do |d| %>
 
-<li>  <%= link_to d.name, donor_donations_path(d) %></li>
+<li>  <%= link_to d.name, donor_donations_path(d) %>- <%=d.email%></li>
 <%end%>
+</ol>
+
+<%=  link_to "Mypage", donor_path(@donor.id) %><br>
+<%=  link_to "Logout", '/logout' %><br>
