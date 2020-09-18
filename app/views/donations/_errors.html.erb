@@ -1,6 +1,7 @@
 <% if @donation.errors.any? %>
 <h2> Errors </h2>
     <ul>
+
         <% @donation.errors.full_messages.each do |mesg| %>
             <li><%= mesg %></li>
             <%end %>

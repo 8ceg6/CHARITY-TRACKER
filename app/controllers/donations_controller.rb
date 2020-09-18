@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
     before_action :authentication_required, except: :create
+    before_action :current_user
     skip_before_action :verify_authenticity_token, only: :create
     
     def index 
@@ -13,8 +14,11 @@ class DonationsController < ApplicationController
 
     def new 
         @donor = Donor.find(params[:donor_id])
-        if params[:donor_id] && !Donor.exists?(params[:donor_id]) 
-            redirect_to charities_path
+        if current_user.id == params[:donor_id].to_i && !Donor.exists?(params[:donor_id]) 
+           
+        redirect_to donor_path(current_user)     # redirect_to charities_path
+        # elsif 
+           
         else
             @donation = Donation.new(donor_id: params[:donor_id])
             @donation.build_charity
@@ -28,8 +32,9 @@ class DonationsController < ApplicationController
            
             redirect_to donor_donations_path(@donation.donor)
         else   
-            redirect_to  new_donor_donation_path(@donation.donor)
-        end 
+           
+            render  :new
+        end
     end 
 
     def show 

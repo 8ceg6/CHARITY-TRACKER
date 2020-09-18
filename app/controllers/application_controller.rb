@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
     helper_method [:authentication_required, :current_user]
     
     def authentication_required
-      #  byebug
       if !logged_in?
           redirect_to '/'
         end
