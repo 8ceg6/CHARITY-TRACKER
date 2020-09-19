@@ -1,5 +1,5 @@
 <% if @donor.errors.any? %>
-<h2> Errors </h2>
+<h3><span style="color:red;"> Errors </span></h3>
     <ul>
         <% @donor.errors.full_messages.each do |mesg| %>
             <li><%= mesg %></li>

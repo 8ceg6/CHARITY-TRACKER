@@ -16,8 +16,7 @@ class DonationsController < ApplicationController
         @donor = Donor.find(params[:donor_id])
         if current_user.id == params[:donor_id].to_i && !Donor.exists?(params[:donor_id]) 
            
-        redirect_to donor_path(current_user)     # redirect_to charities_path
-        # elsif 
+            redirect_to donor_path(current_user) 
            
         else
             @donation = Donation.new(donor_id: params[:donor_id])
@@ -26,13 +25,12 @@ class DonationsController < ApplicationController
     end 
 
     def create 
-        @donation = Donation.new(don_params)
-        if @donation.valid? && current_user.id == params[:donation][:donor_id].to_i
-            @donation.save 
+            @donation = Donation.new(don_params)
+            if @donation.valid? && current_user.id == params[:donation][:donor_id].to_i
+                 @donation.save 
            
             redirect_to donor_donations_path(@donation.donor)
         else   
-           
             render  :new
         end
     end 
@@ -43,7 +41,7 @@ class DonationsController < ApplicationController
     private 
     
     def don_params 
-        params.require(:donation).permit(:amount, :charity_id, :donor_id,
+            params.require(:donation).permit(:amount, :charity_id, :donor_id,
                             charity_attributes:[:name, :id])
     end 
 end

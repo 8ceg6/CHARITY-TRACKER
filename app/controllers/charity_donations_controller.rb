@@ -14,20 +14,18 @@ class CharityDonationsController < ApplicationController
 
     def create 
         @donation = Donation.new(don_params)
-        binding.pry
-        if @donation.valid?
-            @donation.save 
+            
+            if @donation.valid?
+                @donation.save 
              
             redirect_to charity_donations_path(@donation.charity)
-        else 
+            else 
              redirect_to charity_donations_path 
-        end 
+            end 
     end 
     def show 
         @charity = Charity.find_by(id: params[:charity_id]) 
-        # byebug
         @donations = @charity.donations   
-          
         @donations = Donation.where(charity_id: params[:charity_id])
     end 
 

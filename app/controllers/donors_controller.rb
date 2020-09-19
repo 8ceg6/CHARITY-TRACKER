@@ -5,7 +5,6 @@ class DonorsController < ApplicationController
 
     def index 
          @donors = Donor.all
-        #  binding.pry
          @donor = current_user
 
     end 

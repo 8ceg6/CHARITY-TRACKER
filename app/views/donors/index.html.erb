@@ -6,5 +6,5 @@
 <%end%>
 </ol>
 
-<%=  link_to "Mypage", donor_path(@donor.id) %><br>
+<%=  link_to "Mypage", donor_path(current_user) %><br>
 <%=  link_to "Logout", '/logout' %><br>
