@@ -20,7 +20,7 @@ class CharitiesController < ApplicationController
     end
     
     def show 
-        
+        @charities = Charity.all
     end 
 
     private 
