@@ -4,6 +4,7 @@ class CharitiesController < ApplicationController
     def index 
         @charities = Charity.all
         @donor = Donor.find_by(id: params[:id])
+        
     end 
     def new 
         @charity = Charity.new 
@@ -16,11 +17,12 @@ class CharitiesController < ApplicationController
         else 
             @charity = Charity.create(charity_params)
         end
-        redirect_to charities_path
+            redirect_to charities_path
     end
     
     def show 
         @charities = Charity.all
+        
     end 
 
     private 

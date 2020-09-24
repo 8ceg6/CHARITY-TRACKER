@@ -10,11 +10,14 @@
     <th> Date </th>
     </tr>
  <% @donations.collect do |d|%>
-    <tr>
-    <td> <%= d.donor.name%>  </td> 
-    <td > $<%= d.amount %> </td>
-    <td> <%= d.created_at.strftime("%-m-%d-%y")%> </td>
-    </tr>
+    <% if d.donor.present?%>
+ 
+        <tr>
+        <td> <%= d.donor.name%>  </td> 
+        <td > $<%= d.amount %> </td>
+        <td> <%= d.created_at.strftime("%-m-%d-%y")%> </td>
+        </tr>
+    <%end%>
 <%end%>
     </table>
     </body>

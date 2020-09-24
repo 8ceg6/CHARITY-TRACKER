@@ -1,29 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <%
-=begin%>
- <body style="background-color:silver;">
-    <head>
-    <style>
-    h2 {font-size: 50px;}
-    table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
 
-    td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    }
-
-    tr:nth-child(even) {
-    background-color: #dddddd;
-    }
-    </style> 
-<%
-=end%>
 </head>
 <body>
     <h1 style="color:green;">Donations For <%=@charity.name %></h1>
@@ -35,6 +12,7 @@
     <th> Date </th>
     </tr>
  <% @donations.collect do |d|%>
+    
     <tr>
     <td> <%= d.donor.name%>  </td> 
     <td > $<%= d.amount %> </td>

@@ -18,15 +18,14 @@ class CharityDonationsController < ApplicationController
             if @donation.valid?
                 @donation.save 
              
-            redirect_to charity_donations_path(@donation.charity)
+                redirect_to charity_donations_path(@donation.charity)
             else 
-             redirect_to charity_donations_path 
+                redirect_to charity_donations_path 
             end 
     end 
     def show 
         @charity = Charity.find_by(id: params[:charity_id]) 
         @donations = @charity.donations   
-        @donations = Donation.where(charity_id: params[:charity_id])
     end 
 
     private 
