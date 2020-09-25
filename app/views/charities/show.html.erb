@@ -10,7 +10,7 @@
     <th> Date </th>
     </tr>
  <% @charity.donations.collect do |d|%>
-    <% if d.donor.present?%>
+    <% if d.donor%>
    
     <tr>
         <td> <%= d.donor.name %>  </td> 
