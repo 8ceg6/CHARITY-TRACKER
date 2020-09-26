@@ -25,7 +25,14 @@ class CharityDonationsController < ApplicationController
     end 
     def show 
         @charity = Charity.find_by(id: params[:charity_id]) 
-        @donations = @charity.donations   
+        @donations = @charity.donations
+        @char = []
+        @charity.donations.select do |d|
+             if d.donor.present?
+                     @char << d
+             end   
+               @char 
+         end 
     end 
 
     private 

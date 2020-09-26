@@ -21,8 +21,13 @@ class CharitiesController < ApplicationController
     end
     
     def show 
-        @charities = Charity.all
-        
+       @char = []
+       @charity.donations.select do |d|
+            if d.donor.present?
+                    @char << d
+            end   
+              @char 
+        end
     end 
 
     private 
